@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCERT Quiz Hub – Classes 6–8</title>
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#667085;
+  --primary:#5b4bdb;
+  --secondary:#00a8ff;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(20,30,60,.10);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+  border:0;
+}
+
+.hidden{display:none!important}
+
+.app{
+  min-height:100vh;
+}
+
+/* LOGIN */
+
+.auth{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top left,#8b7cff55,transparent 35%),
+    radial-gradient(circle at bottom right,#00c6ff44,transparent 35%),
+    var(--bg);
+}
+
+.auth-card{
+  width:100%;
+  max-width:470px;
+  background:var(--card);
+  border-radius:28px;
+  padding:35px;
+  box-shadow:var(--shadow);
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  font-size:32px;
+  box-shadow:0 10px 25px #5b4bdb44;
+}
+
+.auth-card h1{
+  text-align:center;
+  margin-top:18px;
+  font-size:30px;
+}
+
+.auth-card .tagline{
+  text-align:center;
+  color:var(--muted);
+  margin:8px 0 25px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.tab{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  background:#eef0f6;
+  color:var(--muted);
+}
+
+.tab.active{
+  background:var(--primary);
+  color:white;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:600;
+  margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+  background:var(--card);
+  color:var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:var(--primary);
+}
+
+.primary-btn{
+  width:100%;
+  padding:14px;
+  border-radius:13px;
+  color:white;
+  background:linear-gradient(135deg,var(--primary),#765df5);
+  font-weight:700;
+  box-shadow:0 7px 18px #5b4bdb33;
+}
+
+.small-note{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:15px;
+  text-align:center;
+}
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:13px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  font-size:19px;
+}
+
+.brand-icon{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  color:white;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:#eef0f6;
+}
+
+.user-chip{
+  padding:9px 13px;
+  border-radius:12px;
+  background:#eef0f6;
+  font-weight:600;
+}
+
+/* LAYOUT */
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 68px);
+}
+
+.sidebar{
+  width:245px;
+  background:var(--card);
+  border-right:1px solid var(--border);
+  padding:20px 14px;
+}
+
+.nav-btn{
+  width:100%;
+  text-align:left;
+  padding:13px 15px;
+  margin-bottom:6px;
+  border-radius:12px;
+  background:transparent;
+  color:var(--text);
+  font-weight:600;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+  background:#eceaff;
+  color:var(--primary);
+}
+
+.main{
+  flex:1;
+  padding:28px;
+  max-width:1500px;
+  margin:auto;
+  width:100%;
+}
+
+/* HERO */
+
+.hero{
+  padding:30px;
+  border-radius:25px;
+  background:
+    linear-gradient(135deg,#5b4bdb,#00a8ff);
+  color:white;
+  box-shadow:var(--shadow);
+  margin-bottom:25px;
+}
+
+.hero h2{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  opacity:.9;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:var(--card);
+  padding:20px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+.stat-icon{
+  font-size:25px;
+}
+
+.stat-value{
+  font-size:27px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* SUBJECTS */
+
+.section-title{
+  margin:25px 0 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.subject-card{
+  padding:23px;
+  border-radius:20px;
+  color:white;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:var(--shadow);
+}
+
+.subject-card.math{
+  background:linear-gradient(135deg,#ff7a18,#ffb347);
+}
+
+.subject-card.science{
+  background:linear-gradient(135deg,#00a878,#00c9a7);
+}
+
+.subject-card.social{
+  background:linear-gradient(135deg,#635bff,#9b5de5);
+}
+
+.subject-card h3{
+  font-size:22px;
+}
+
+.subject-card button{
+  width:max-content;
+  padding:10px 15px;
+  border-radius:10px;
+  background:white;
+  color:#222;
+  font-weight:700;
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.filters input,
+.filters select{
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--card);
+  color:var(--text);
+}
+
+/* CHAPTERS */
+
+.chapter-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.chapter{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  transition:.2s;
+}
+
+.chapter:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+.chapter-number{
+  display:inline-flex;
+  padding:5px 9px;
+  border-radius:8px;
+  background:#eceaff;
+  color:var(--primary);
+  font-weight:800;
+  font-size:12px;
+}
+
+.chapter h3{
+  margin:12px 0 8px;
+}
+
+.chapter p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.chapter button{
+  padding:10px 14px;
+  border-radius:10px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+}
+
+/* QUIZ */
+
+.quiz-box{
+  max-width:850px;
+  margin:auto;
+}
+
+.quiz-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.progress{
+  height:9px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:22px;
+}
+
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  transition:.3s;
+}
+
+.question-card{
+  background:var(--card);
+  border-radius:23px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.question-card h2{
+  line-height:1.45;
+  margin-bottom:22px;
+}
+
+.options{
+  display:grid;
+  gap:12px;
+}
+
+.option{
+  padding:16px;
+  border:2px solid var(--border);
+  border-radius:14px;
+  background:var(--card);
+  text-align:left;
+  color:var(--text);
+  font-weight:600;
+  transition:.2s;
+}
+
+.option:hover{
+  border-color:var(--primary);
+}
+
+.option.correct{
+  border-color:var(--success);
+  background:#dcfce7;
+  color:#166534;
+}
+
+.option.wrong{
+  border-color:var(--danger);
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.feedback{
+  padding:15px;
+  border-radius:13px;
+  margin-top:17px;
+  font-weight:800;
+}
+
+.feedback.correct{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.feedback.wrong{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.next-btn{
+  margin-top:18px;
+  width:100%;
+  padding:14px;
+  border-radius:13px;
+  background:var(--primary);
+  color:white;
+  font-weight:800;
+}
+
+/* DASHBOARD */
+
+.panel{
+  background:var(--card);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+}
+
+.progress-row{
+  margin:14px 0;
+}
+
+.progress-row-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:6px;
+}
+
+.mini-progress{
+  height:9px;
+  border-radius:20px;
+  background:#e5e7eb;
+  overflow:hidden;
+}
+
+.mini-progress div{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+}
+
+.badges{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.badge{
+  text-align:center;
+  padding:18px 10px;
+  border-radius:15px;
+  background:#f2f3f8;
+}
+
+.badge .emoji{
+  font-size:30px;
+}
+
+/* CERTIFICATE */
+
+.certificate{
+  background:white;
+  color:#172033;
+  border:12px solid #5b4bdb;
+  padding:50px;
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+  box-shadow:var(--shadow);
+}
+
+.certificate h1{
+  font-size:42px;
+  margin:15px;
+}
+
+.certificate h2{
+  color:#5b4bdb;
+  margin:15px;
+}
+
+.certificate .name{
+  font-size:34px;
+  font-weight:800;
+  border-bottom:2px solid #333;
+  display:inline-block;
+  padding:5px 30px;
+  margin:15px;
+}
+
+.print-btn{
+  margin:20px auto;
+  display:block;
+  padding:13px 25px;
+  background:var(--primary);
+  color:white;
+  border-radius:12px;
+  font-weight:700;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:13px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cards,.chapter-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+  .sidebar{display:none}
+  .main{padding:16px}
+  .cards,.chapter-grid,.stats{grid-template-columns:1fr}
+  .hero h2{font-size:25px}
+  .header{padding:10px}
+  .user-chip{display:none}
+  .certificate{padding:25px}
+  .certificate h1{font-size:30px}
+  .certificate .name{font-size:25px}
+}
+
+@media print{
+  body *{visibility:hidden}
+  .certificate,.certificate *{visibility:visible}
+  .certificate{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+  }
+  .print-btn{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+/* =========================================================
+   NCERT QUIZ HUB
+   SINGLE FILE APPLICATION
+========================================================= */
+
+/* ---------- CHAPTER DATABASE ---------- */
+
+const chapterDatabase = {
+
+6:{
+  Mathematics:[
+    "Patterns in Mathematics",
+    "Lines and Angles",
+    "Number Play",
+    "Data Handling and Presentation",
+    "Prime Time",
+    "Perimeter and Area",
+    "Fractions",
+    "Playing with Constructions",
+    "Symmetry",
+    "The Other Side of Zero"
+  ],
+  Science:[
+    "Curiosity",
+    "Components of Food",
+    "Sorting Materials into Groups",
+    "Separation of Substances",
+    "Getting to Know Plants",
+    "Body Movements",
+    "The Living Organisms",
+    "Motion and Measurement of Distances",
+    "Light, Shadows and Reflections",
+    "Electricity and Circuits",
+    "Fun with Magnets",
+    "Air Around Us"
+  ],
+  "Social Science":[
+    "Locating Places on the Earth",
+    "Oceans and Continents",
+    "Landforms and Life",
+    "Timeline and Sources of History",
+    "India That Is Bharat",
+    "The Beginnings of Indian Civilisation",
+    "India's Cultural Roots",
+    "Unity in Diversity",
+    "Family and Community",
+    "Grassroots Democracy",
+    "Rural Administration",
+    "Urban Administration",
+    "Economic Activities Around Us"
+  ]
+},
+
+7:{
+  Mathematics:[
+    "Large Numbers Around Us",
+    "Arithmetic Expressions",
+    "A Peek Beyond the Point",
+    "Expressions Using Letter-Numbers",
+    "Parallel and Intersecting Lines",
+    "Number Play",
+    "A Tale of Three Triangles",
+    "Working with Fractions",
+    "Geometric Constructions",
+    "Three-Dimensional Shapes",
+    "Perimeter and Area",
+    "Algebraic Expressions",
+    "Exponents",
+    "Symmetry"
+  ],
+  Science:[
+    "The Ever-Evolving World of Science",
+    "Exploring Substances",
+    "Heat",
+    "Acids and Bases",
+    "Changes Around Us",
+    "Adolescence",
+    "Motion",
+    "Electric Current",
+    "Light",
+    "Life Processes",
+    "Living Creatures",
+    "Forests",
+    "Water"
+  ],
+  "Social Science":[
+    "Understanding Society",
+    "Tracing Changes Through a Thousand Years",
+    "New Kings and Kingdoms",
+    "The Delhi Sultans",
+    "The Mughal Empire",
+    "Rulers and Buildings",
+    "Tribes, Nomads and Settled Communities",
+    "Devotional Paths to the Divine",
+    "The Making of Regional Cultures",
+    "Eighteenth-Century Political Formations",
+    "Environment",
+    "Inside Our Earth",
+    "Our Changing Earth",
+    "Air",
+    "Water",
+    "Natural Vegetation and Wildlife",
+    "Human Environment",
+    "Markets Around Us",
+    "A Shirt in the Market",
+    "Understanding Media",
+    "Gender"
+  ]
+},
+
+8:{
+  Mathematics:[
+    "Rational Numbers",
+    "Linear Equations in One Variable",
+    "Understanding Quadrilaterals",
+    "Data Handling",
+    "Squares and Square Roots",
+    "Cubes and Cube Roots",
+    "Comparing Quantities",
+    "Algebraic Expressions and Identities",
+    "Mensuration",
+    "Exponents and Powers",
+    "Direct and Inverse Proportions",
+    "Factorisation",
+    "Introduction to Graphs",
+    "Playing with Numbers"
+  ],
+  Science:[
+    "Crop Production and Management",
+    "Microorganisms",
+    "Coal and Petroleum",
+    "Combustion and Flame",
+    "Conservation of Plants and Animals",
+    "Reproduction in Animals",
+    "Reaching the Age of Adolescence",
+    "Force and Pressure",
+    "Friction",
+    "Sound",
+    "Chemical Effects of Electric Current",
+    "Some Natural Phenomena",
+    "Light",
+    "Stars and the Solar System",
+    "Pollution of Air and Water"
+  ],
+  "Social Science":[
+    "How, When and Where",
+    "From Trade to Territory",
+    "Ruling the Countryside",
+    "Tribals, Dikus and the Vision of a Golden Age",
+    "When People Rebel",
+    "Civilising the Native, Educating the Nation",
+    "Women, Caste and Reform",
+    "The Making of the National Movement",
+    "India After Independence",
+    "Resources",
+    "Land, Soil, Water, Natural Vegetation and Wildlife Resources",
+    "Mineral and Power Resources",
+    "Agriculture",
+    "Industries",
+    "Human Resources",
+    "The Indian Constitution",
+    "Understanding Secularism",
+    "Why Do We Need a Parliament?",
+    "Understanding Laws",
+    "Judiciary",
+    "Understanding Marginalisation",
+    "Confronting Marginalisation",
+    "Public Facilities",
+    "Law and Social Justice"
+  ]
+}
+
+};
+
+
+/* ---------- QUESTION BANK ---------- */
+
+const questionBank = {
+
+"Numbers":[
+ {
+  q:"Which number is the smallest prime number?",
+  o:["0","1","2","3"],
+  a:2
+ },
+ {
+  q:"What is 12 × 5?",
+  o:["50","60","70","80"],
+  a:1
+ }
+],
+
+"Fractions":[
+ {
+  q:"Which fraction is equivalent to 1/2?",
+  o:["2/4","3/4","2/3","4/5"],
+  a:0
+ },
+ {
+  q:"What is 1/4 + 1/4?",
+  o:["1/2","1/4","2/8","3/4"],
+  a:0
+ }
+],
+
+"Linear Equations":[
+ {
+  q:"If x + 5 = 12, what is x?",
+  o:["5","6","7","8"],
+  a:2
+ },
+ {
+  q:"If 2x = 18, what is x?",
+  o:["7","8","9","10"],
+  a:2
+ }
+],
+
+"Force":[
+ {
+  q:"A push or pull on an object is called:",
+  o:["Energy","Force","Pressure","Motion"],
+  a:1
+ },
+ {
+  q:"Which force pulls objects towards Earth?",
+  o:["Magnetic force","Friction","Gravity","Muscular force"],
+  a:2
+ }
+],
+
+"Light":[
+ {
+  q:"Which object produces its own light?",
+  o:["Moon","Mirror","Sun","Book"],
+  a:2
+ },
+ {
+  q:"A mirror reflects:",
+  o:["Sound","Light","Heat only","Water"],
+  a:1
+ }
+],
+
+"Friction":[
+ {
+  q:"Friction generally acts:",
+  o:["In the direction of motion","Opposite to relative motion","Upward only","Downward only"],
+  a:1
+ }
+],
+
+"Constitution":[
+ {
+  q:"The Constitution of India came into effect on:",
+  o:["15 August 1947","26 January 1950","26 November 1949","2 October 1950"],
+  a:1
+ }
+],
+
+"Resources":[
+ {
+  q:"Which of these is a natural resource?",
+  o:["Plastic","Water","Computer","Car"],
+  a:1
+ }
+],
+
+"Environment":[
+ {
+  q:"Which layer surrounds the Earth and contains air?",
+  o:["Atmosphere","Crust","Mantle","Core"],
+  a:0
+ }
+]
+
+};
+
+
+/* ---------- USER DATA ---------- */
+
+let users = JSON.parse(localStorage.getItem("ncert_users") || "{}");
+let currentUser = localStorage.getItem("ncert_current_user") || null;
+
+let state = {
+  page:"dashboard",
+  selectedClass:null,
+  selectedSubject:null,
+  selectedChapter:null,
+  questions:[],
+  currentQuestion:0,
+  score:0,
+  answered:false,
+  quizFinished:false,
+  quizResults:[]
+};
+
+
+/* ---------- HELPERS ---------- */
+
+function saveUsers(){
+  localStorage.setItem("ncert_users",JSON.stringify(users));
+}
+
+function getUser(){
+  return users[currentUser];
+}
+
+function escapeHTML(text){
+  return String(text)
+   .replaceAll("&","&amp;")
+   .replaceAll("<","&lt;")
+   .replaceAll(">","&gt;")
+   .replaceAll('"',"&quot;")
+   .replaceAll("'","&#039;");
+}
+
+function today(){
+  return new Date().toLocaleDateString("en-IN");
+}
+
+function randomize(array){
+  return [...array].sort(()=>Math.random()-.5);
+}
+
+function chapterQuestions(chapter){
+
+  let result=[];
+
+  const normalized=chapter.toLowerCase();
+
+  for(const key in questionBank){
+
+    if(normalized.includes(key.toLowerCase()) ||
+       key.toLowerCase().includes(normalized)){
+
+      result.push(...questionBank[key]);
+    }
+  }
+
+  /* fallback educational questions */
+
+  if(result.length===0){
+
+    result=[
+      {
+        q:`Which statement is most closely related to "${chapter}"?`,
+        o:[
+          "It is a topic studied as part of the school curriculum.",
+          "It is unrelated to school learning.",
+          "It is only a sports topic.",
+          "It is only a computer game."
+        ],
+        a:0
+      },
+      {
+        q:`Why is learning "${chapter}" useful?`,
+        o:[
+          "It helps build understanding of the subject.",
+          "It has no educational value.",
+          "It can only be studied outside school.",
+          "It is unrelated to the curriculum."
+        ],
+        a:0
+      },
+      {
+        q:`Which is a good way to learn "${chapter}"?`,
+        o:[
+          "Practice and revision",
+          "Never reviewing it",
+          "Skipping examples",
+          "Avoiding questions"
+        ],
+        a:0
+      }
+    ];
+  }
+
+  return randomize(result).slice(0,10);
+}
+
+
+/* ---------- AUTH ---------- */
+
+function showAuth(mode="login"){
+
+  document.getElementById("app").innerHTML=`
+
+  <div class="auth">
+
+    <div class="auth-card">
+
+      <div class="logo">🎓</div>
+
+      <h1>NCERT Quiz Hub</h1>
+
+      <p class="tagline">
+        Learn • Practice • Quiz • Achieve 🏆
+      </p>
+
+      <div class="tabs">
+
+        <button class="tab ${mode==="login"?"active":""}"
+          onclick="showAuth('login')">
+          Login
+        </button>
+
+        <button class="tab ${mode==="signup"?"active":""}"
+          onclick="showAuth('signup')">
+          Create Account
+        </button>
+
+      </div>
+
+      ${
+        mode==="login"
+        ? loginForm()
+        : signupForm()
+      }
+
+    </div>
+
+  </div>
+  `;
+}
+
+
+function loginForm(){
+
+ return `
+
+ <form onsubmit="login(event)">
+
+   <div class="form-group">
+     <label>Username</label>
+     <input id="loginUsername" required>
+   </div>
+
+   <div class="form-group">
+     <label>Password</label>
+     <input id="loginPassword" type="password" required>
+   </div>
+
+   <button class="primary-btn">
+     LOGIN 🚀
+   </button>
+
+ </form>
+
+ <p class="small-note">
+ Demo accounts are stored locally in this browser.
+ </p>
+ `;
+}
+
+
+function signupForm(){
+
+ return `
+
+ <form onsubmit="signup(event)">
+
+   <div class="form-group">
+     <label>Full Name</label>
+     <input id="fullName" required>
+   </div>
+
+   <div class="form-group">
+     <label>Username</label>
+     <input id="newUsername" required>
+   </div>
+
+   <div class="form-group">
+     <label>Password</label>
+     <input id="newPassword" type="password" required>
+   </div>
+
+   <div class="form-group">
+     <label>Confirm Password</label>
+     <input id="confirmPassword" type="password" required>
+   </div>
+
+   <div class="form-group">
+     <label>Class</label>
+
+     <select id="studentClass" required>
+       <option value="">Select Class</option>
+       <option value="6">Class 6</option>
+       <option value="7">Class 7</option>
+       <option value="8">Class 8</option>
+     </select>
+
+   </div>
+
+   <button class="primary-btn">
+     CREATE ACCOUNT 🎉
+   </button>
+
+ </form>
+
+ `;
+}
+
+
+function signup(e){
+
+ e.preventDefault();
+
+ const name=document.getElementById("fullName").value.trim();
+ const username=document.getElementById("newUsername").value.trim();
+ const password=document.getElementById("newPassword").value;
+ const confirm=document.getElementById("confirmPassword").value;
+ const cls=document.getElementById("studentClass").value;
+
+ if(password!==confirm){
+   alert("Passwords do not match!");
+   return;
+ }
+
+ if(users[username]){
+   alert("Username already exists!");
+   return;
+ }
+
+ users[username]={
+   name,
+   username,
+   password,
+   class:cls,
+   quizzes:[],
+   certificates:[],
+   badges:[],
+   streak:0,
+   lastQuiz:null
+ };
+
+ saveUsers();
+
+ alert("Account created successfully! 🎉");
+
+ currentUser=username;
+
+ localStorage.setItem("ncert_current_user",username);
+
+ renderApp();
+}
+
+
+function login(e){
+
+ e.preventDefault();
+
+ const username=document.getElementById("loginUsername").value.trim();
+ const password=document.getElementById("loginPassword").value;
+
+ if(!users[username] || users[username].password!==password){
+   alert("Incorrect username or password.");
+   return;
+ }
+
+ currentUser=username;
+
+ localStorage.setItem("ncert_current_user",username);
+
+ renderApp();
+}
+
+
+function logout(){
+
+ currentUser=null;
+
+ localStorage.removeItem("ncert_current_user");
+
+ showAuth("login");
+}
+
+
+/* ---------- MAIN APP ---------- */
+
+function renderApp(){
+
+ if(!currentUser){
+   showAuth("login");
+   return;
+ }
+
+ document.getElementById("app").innerHTML=`
+
+ <header class="header">
+
+   <div class="brand">
+
+     <div class="brand-icon">🎓</div>
+
+     <span>NCERT Quiz Hub</span>
+
+   </div>
+
+   <div class="header-actions">
+
+     <button class="icon-btn"
+       onclick="toggleDarkMode()">
+       🌙
+     </button>
+
+     <div class="user-chip">
+       👤 ${escapeHTML(getUser().name)}
+     </div>
+
+     <button class="icon-btn"
+       onclick="logout()">
+       🚪
+     </button>
+
+   </div>
+
+ </header>
+
+ <div class="layout">
+
+   <aside class="sidebar">
+
+     ${navButton("dashboard","🏠 Dashboard")}
+
+     ${navButton("chapters","📚 Chapters")}
+
+     ${navButton("quiz","🧠 Quiz")}
+
+     ${navButton("progress","📊 Progress")}
+
+     ${navButton("certificates","🏆 Certificates")}
+
+     ${navButton("profile","👤 Profile")}
+
+   </aside>
+
+   <main class="main" id="mainContent"></main>
+
+ </div>
+
+ `;
+
+ renderPage();
+
+}
+
+
+function navButton(page,text){
+
+ return `
+ <button
+   class="nav-btn ${state.page===page?"active":""}"
+   onclick="navigate('${page}')">
+   ${text}
+ </button>
+ `;
+}
+
+
+function navigate(page){
+
+ state.page=page;
+
+ renderApp();
+
+}
+
+
+/* ---------- DASHBOARD ---------- */
+
+function dashboard(){
+
+ const user=getUser();
+
+ const quizzes=user.quizzes.length;
+
+ const totalCorrect=user.quizzes.reduce(
+   (sum,q)=>sum+q.correct,0
+ );
+
+ const totalQuestions=user.quizzes.reduce(
+   (sum,q)=>sum+q.total,0
+ );
+
+ const accuracy=totalQuestions
+   ? Math.round(totalCorrect/totalQuestions*100)
+   : 0;
+
+ return `
+
+ <section class="hero">
+
+   <h2>
+     Welcome back, ${escapeHTML(user.name)}! 👋
+   </h2>
+
+   <p>
+     Class ${user.class} • Keep learning and keep growing!
+   </p>
+
+ </section>
+
+
+ <div class="stats">
+
+   <div class="stat">
+     <div class="stat-icon">📝</div>
+     <div class="stat-value">${quizzes}</div>
+     <div class="stat-label">Quizzes Completed</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-icon">🎯</div>
+     <div class="stat-value">${accuracy}%</div>
+     <div class="stat-label">Accuracy</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-icon">🔥</div>
+     <div class="stat-value">${user.streak}</div>
+     <div class="stat-label">Quiz Streak</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-icon">🏅</div>
+     <div class="stat-value">${user.badges.length}</div>
+     <div class="stat-label">Badges</div>
+   </div>
+
+ </div>
+
+
+ <div class="section-title">
+   <h2>Choose Your Subject</h2>
+ </div>
+
+
+ <div class="cards">
+
+   <div class="subject-card math">
+     <div>
+       <h3>📐 Mathematics</h3>
+       <p>Numbers • Algebra • Geometry • Data</p>
+     </div>
+
+     <button onclick="openSubject('Mathematics')">
+       Explore →
+     </button>
+   </div>
+
+
+   <div class="subject-card science">
+     <div>
+       <h3>🔬 Science</h3>
+       <p>Physics • Chemistry • Biology</p>
+     </div>
+
+     <button onclick="openSubject('Science')">
+       Explore →
+     </button>
+   </div>
+
+
+   <div class="subject-card social">
+     <div>
+       <h3>🌍 Social Science</h3>
+       <p>History • Geography • Civics</p>
+     </div>
+
+     <button onclick="openSubject('Social Science')">
+       Explore →
+     </button>
+   </div>
+
+ </div>
+
+
+ <div class="section-title">
+   <h2>🏆 Your Achievements</h2>
+ </div>
+
+ <div class="badges">
+
+   <div class="badge">
+     <div class="emoji">🌟</div>
+     <b>First Quiz</b>
+   </div>
+
+   <div class="badge">
+     <div class="emoji">🔥</div>
+     <b>Streak</b>
+   </div>
+
+   <div class="badge">
+     <div class="emoji">🎯</div>
+     <b>Accuracy</b>
+   </div>
+
+   <div class="badge">
+     <div class="emoji">🏆</div>
+     <b>Champion</b>
+   </div>
+
+ </div>
+ `;
+}
+
+
+/* ---------- CHAPTERS ---------- */
+
+function chaptersPage(){
+
+ return `
+
+ <h1>📚 NCERT Chapters</h1>
+
+ <p style="color:var(--muted);margin:7px 0 20px">
+ Select a class, subject and chapter to begin.
+ </p>
+
+
+ <div class="filters">
+
+   <select id="classFilter"
+     onchange="loadChapters()">
+
+     <option value="">All Classes</option>
+     <option value="6">Class 6</option>
+     <option value="7">Class 7</option>
+     <option value="8">Class 8</option>
+
+   </select>
+
+
+   <select id="subjectFilter"
+     onchange="loadChapters()">
+
+     <option value="">All Subjects</option>
+     <option>Mathematics</option>
+     <option>Science</option>
+     <option>Social Science</option>
+
+   </select>
+
+
+   <input
+     id="chapterSearch"
+     placeholder="🔎 Search chapter..."
+     oninput="loadChapters()">
+
+ </div>
+
+
+ <div id="chapterGrid" class="chapter-grid"></div>
+
+ `;
+}
+
+
+function loadChapters(){
+
+ const cls=document.getElementById("classFilter").value;
+ const subject=document.getElementById("subjectFilter").value;
+ const search=(document.getElementById("chapterSearch").value||"").toLowerCase();
+
+ let html="";
+
+ const classes=cls?[cls]:["6","7","8"];
+
+ classes.forEach(c=>{
+
+   const subjects=subject
+     ?[subject]
+     :Object.keys(chapterDatabase[c]);
+
+   subjects.forEach(s=>{
+
+     chapterDatabase[c][s].forEach((chapter,index)=>{
+
+       if(
+         search &&
+         !chapter.toLowerCase().includes(search)
+       ) return;
+
+       html+=`
+
+       <div class="chapter">
+
+         <span class="chapter-number">
+           CLASS ${c}
+         </span>
+
+         <h3>${escapeHTML(chapter)}</h3>
+
+         <p>
+           ${escapeHTML(s)}
+           • Chapter ${index+1}
+         </p>
+
+         <button onclick="startQuiz('${c}','${escapeHTML(s)}','${escapeHTML(chapter)}')">
+           Start Quiz →
+         </button>
+
+       </div>
+
+       `;
+
+     });
+
+   });
+
+ });
+
+ document.getElementById("chapterGrid").innerHTML=
+   html ||
+   `<p>No chapters found.</p>`;
+}
+
+
+function openSubject(subject){
+
+ state.selectedSubject=subject;
+
+ state.page="chapters";
+
+ renderApp();
+
+ setTimeout(()=>{
+
+   document.getElementById("subjectFilter").value=subject;
+
+   loadChapters();
+
+ },50);
+}
+
+
+/* ---------- QUIZ ---------- */
+
+function startQuiz(cls,subject,chapter){
+
+ state.selectedClass=cls;
+ state.selectedSubject=subject;
+ state.selectedChapter=chapter;
+
+ state.questions=chapterQuestions(chapter);
+
+ state.currentQuestion=0;
+ state.score=0;
+ state.answered=false;
+ state.quizFinished=false;
+
+ state.page="quiz";
+
+ renderApp();
+
+}
+
+
+function quizPage(){
+
+ if(state.quizFinished){
+
+   return resultPage();
+
+ }
+
+ const q=state.questions[state.currentQuestion];
+
+ const progress=
+   ((state.currentQuestion)/state.questions.length)*100;
+
+ return `
+
+ <div class="quiz-box">
+
+   <div class="quiz-header">
+
+     <div>
+       <b>Class ${state.selectedClass}</b>
+       <div style="color:var(--muted)">
+         ${escapeHTML(state.selectedSubject)}
+       </div>
+     </div>
+
+     <strong>
+       ${state.currentQuestion+1}/${state.questions.length}
+     </strong>
+
+   </div>
+
+
+   <div class="progress">
+     <div
+       class="progress-bar"
+       style="width:${progress}%">
+     </div>
+   </div>
+
+
+   <div class="question-card">
+
+     <p style="color:var(--muted);margin-bottom:8px">
+       ${escapeHTML(state.selectedChapter)}
+     </p>
+
+     <h2>
+       ${escapeHTML(q.q)}
+     </h2>
+
+
+     <div class="options">
+
+       ${q.o.map((option,i)=>`
+
+         <button
+           class="option"
+           onclick="answerQuestion(${i})"
+           id="option-${i}">
+
+           <b>${String.fromCharCode(65+i)}.</b>
+           ${escapeHTML(option)}
+
+         </button>
+
+       `).join("")}
+
+     </div>
+
+
+     <div id="feedback"></div>
+
+     <button
+       id="nextButton"
+       class="next-btn hidden"
+       onclick="nextQuestion()">
+
+       NEXT →
+     </button>
+
+   </div>
+
+ </div>
+
+ `;
+}
+
+
+function answerQuestion(index){
+
+ if(state.answered) return;
+
+ state.answered=true;
+
+ const q=state.questions[state.currentQuestion];
+
+ const options=document.querySelectorAll(".option");
+
+ options.forEach((btn,i)=>{
+
+   if(i===q.a)
+     btn.classList.add("correct");
+
+   if(i===index && index!==q.a)
+     btn.classList.add("wrong");
+
+ });
+
+ const feedback=document.getElementById("feedback");
+
+ if(index===q.a){
+
+   state.score++;
+
+   feedback.innerHTML=
+     `<div class="feedback correct">
+       EXCELLENT! 🎉
+      </div>`;
+
+ }else{
+
+   feedback.innerHTML=
+     `<div class="feedback wrong">
+       OOPS! IT'S WRONG ❌
+       <br>
+       <small>
+       Correct answer:
+       ${escapeHTML(q.o[q.a])}
+       </small>
+      </div>`;
+ }
+
+ document.getElementById("nextButton")
+   .classList.remove("hidden");
+}
+
+
+function nextQuestion(){
+
+ state.currentQuestion++;
+
+ state.answered=false;
+
+ if(state.currentQuestion>=state.questions.length){
+
+   finishQuiz();
+
+ }else{
+
+   renderApp();
+
+ }
+
+}
+
+
+function finishQuiz(){
+
+ const user=getUser();
+
+ const total=state.questions.length;
+
+ const correct=state.score;
+
+ const percentage=Math.round(correct/total*100);
+
+ const result={
+   id:Date.now(),
+   class:state.selectedClass,
+   subject:state.selectedSubject,
+   chapter:state.selectedChapter,
+   correct,
+   total,
+   percentage,
+   date:today()
+ };
+
+ user.quizzes.push(result);
+
+ updateAchievements(user,percentage);
+
+ saveUsers();
+
+ state.quizResults=result;
+
+ state.quizFinished=true;
+
+ renderApp();
+}
+
+
+/* ---------- ACHIEVEMENTS ---------- */
+
+function updateAchievements(user,percentage){
+
+ if(!user.badges.includes("FIRST_QUIZ"))
+   user.badges.push("FIRST_QUIZ");
+
+ if(percentage===100 && !user.badges.includes("PERFECT")){
+   user.badges.push("PERFECT");
+ }
+
+ if(user.quizzes.length>=5 &&
+    !user.badges.includes("QUIZ_MASTER")){
+   user.badges.push("QUIZ_MASTER");
+ }
+
+ const now=new Date();
+
+ if(user.lastQuiz){
+
+   const previous=new Date(user.lastQuiz);
+
+   const difference=
+     Math.floor((now-previous)/(1000*60*60*24));
+
+   if(difference===1)
+     user.streak++;
+
+   else if(difference>1)
+     user.streak=1;
+
+ }else{
+
+   user.streak=1;
+
+ }
+
+ user.lastQuiz=now.toISOString();
+
+}
+
+
+/* ---------- RESULT ---------- */
+
+function resultPage(){
+
+ const r=state.quizResults;
+
+ const passed=r.percentage>=40;
+
+ return `
+
+ <div class="quiz-box">
+
+   <div class="panel" style="text-align:center">
+
+     <div style="font-size:65px">
+       ${passed?"🏆":"📚"}
+     </div>
+
+     <h1>
+       ${passed?"Quiz Completed!":"Keep Practising!"}
+     </h1>
+
+     <p style="color:var(--muted);margin:10px">
+       ${escapeHTML(r.chapter)}
+     </p>
+
+     <div class="stats">
+
+       <div class="stat">
+         <div class="stat-value">${r.correct}</div>
+         <div class="stat-label">Correct</div>
+       </div>
+
+       <div class="stat">
+         <div class="stat-value">${r.total-r.correct}</div>
+         <div class="stat-label">Wrong</div>
+       </div>
+
+       <div class="stat">
+         <div class="stat-value">${r.percentage}%</div>
+         <div class="stat-label">Percentage</div>
+       </div>
+
+       <div class="stat">
+         <div class="stat-value">${r.total}</div>
+         <div class="stat-label">Questions</div>
+       </div>
+
+     </div>
+
+
+     <button
+       class="primary-btn"
+       style="margin-top:15px"
+       onclick="generateCertificate()">
+
+       🏅 GET CERTIFICATE
+
+     </button>
+
+
+     <button
+       class="next-btn"
+       onclick="navigate('chapters')">
+
+       TRY ANOTHER QUIZ
+
+     </button>
+
+   </div>
+
+ </div>
+
+ `;
+}
+
+
+/* ---------- CERTIFICATE ---------- */
+
+function generateCertificate(){
+
+ const r=state.quizResults;
+
+ const user=getUser();
+
+ const certificate={
+
+   id:"NQH-"+Date.now().toString().slice(-8),
+
+   date:today(),
+
+   name:user.name,
+
+   class:r.class,
+
+   subject:r.subject,
+
+   chapter:r.chapter,
+
+   percentage:r.percentage
+
+ };
+
+ user.certificates.push(certificate);
+
+ saveUsers();
+
+ state.page="certificates";
+
+ renderApp();
+
+ setTimeout(()=>{
+
+   document.getElementById("certificateArea")
+     ?.scrollIntoView({behavior:"smooth"});
+
+ },100);
+
+}
+
+
+function certificatesPage(){
+
+ const user=getUser();
+
+ if(user.certificates.length===0){
+
+   return `
+
+   <div class="panel" style="text-align:center">
+
+     <div style="font-size:60px">🏆</div>
+
+     <h2>No certificates yet</h2>
+
+     <p style="color:var(--muted);margin:10px">
+       Complete a quiz and generate your first certificate!
+     </p>
+
+   </div>
+
+   `;
+
+ }
+
+ const c=user.certificates[user.certificates.length-1];
+
+ return `
+
+ <div id="certificateArea">
+
+   <div class="certificate">
+
+     <div style="font-size:55px">🎓</div>
+
+     <h1>Certificate of Achievement</h1>
+
+     <p>This certificate is proudly presented to</p>
+
+     <div class="name">
+       ${escapeHTML(c.name)}
+     </div>
+
+     <p>
+       for successfully completing the NCERT Quiz
+     </p>
+
+     <h2>
+       ${escapeHTML(c.chapter)}
+     </h2>
+
+     <p>
+       Class ${c.class} • ${escapeHTML(c.subject)}
+     </p>
+
+     <h2>
+       Score: ${c.percentage}%
+     </h2>
+
+     <p>
+       Date: ${c.date}
+     </p>
+
+     <p style="margin-top:20px">
+       Certificate ID: ${c.id}
+     </p>
+
+     <button class="print-btn"
+       onclick="window.print()">
+
+       🖨️ PRINT / SAVE PDF
+
+     </button>
+
+   </div>
+
+ </div>
+
+ `;
+}
+
+
+/* ---------- PROGRESS ---------- */
+
+function progressPage(){
+
+ const user=getUser();
+
+ let total=0;
+ let correct=0;
+
+ user.quizzes.forEach(q=>{
+   total+=q.total;
+   correct+=q.correct;
+ });
+
+ const accuracy=total
+   ?Math.round(correct/total*100)
+   :0;
+
+ return `
+
+ <h1>📊 Your Progress</h1>
+
+ <p style="color:var(--muted);margin:7px 0 20px">
+ Track your learning journey.
+ </p>
+
+
+ <div class="stats">
+
+   <div class="stat">
+     <div class="stat-value">${user.quizzes.length}</div>
+     <div class="stat-label">Quizzes</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-value">${correct}</div>
+     <div class="stat-label">Correct Answers</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-value">${accuracy}%</div>
+     <div class="stat-label">Accuracy</div>
+   </div>
+
+   <div class="stat">
+     <div class="stat-value">${user.streak}</div>
+     <div class="stat-label">Streak 🔥</div>
+   </div>
+
+ </div>
+
+
+ <div class="panel">
+
+   <h2>🏅 Badges</h2>
+
+   <div class="badges" style="margin-top:15px">
+
+     <div class="badge">
+       <div class="emoji">
+         ${user.badges.includes("FIRST_QUIZ")?"🌟":"🔒"}
+       </div>
+       <b>First Quiz</b>
+     </div>
+
+     <div class="badge">
+       <div class="emoji">
+         ${user.badges.includes("PERFECT")?"💯":"🔒"}
+       </div>
+       <b>Perfect Score</b>
+     </div>
+
+     <div class="badge">
+       <div class="emoji">
+         ${user.badges.includes("QUIZ_MASTER")?"🏆":"🔒"}
+       </div>
+       <b>Quiz Master</b>
+     </div>
+
+     <div class="badge">
+       <div class="emoji">🔥</div>
+       <b>Keep Going</b>
+     </div>
+
+   </div>
+
+ </div>
+
+
+ <div class="panel">
+
+   <h2>📝 Quiz History</h2>
+
+   <div class="table-wrap">
+
+   <table>
+
+     <thead>
+
+       <tr>
+         <th>Date</th>
+         <th>Class</th>
+         <th>Subject</th>
+         <th>Chapter</th>
+         <th>Score</th>
+       </tr>
+
+     </thead>
+
+     <tbody>
+
+       ${
+         user.quizzes.length
+         ?
+         user.quizzes.slice().reverse().map(q=>`
+
+         <tr>
+           <td>${q.date}</td>
+           <td>${q.class}</td>
+           <td>${escapeHTML(q.subject)}</td>
+           <td>${escapeHTML(q.chapter)}</td>
+           <td>${q.correct}/${q.total} (${q.percentage}%)</td>
+         </tr>
+
+         `).join("")
+         :
+         `<tr><td colspan="5">No quizzes completed yet.</td></tr>`
+       }
+
+     </tbody>
+
+   </table>
+
+   </div>
+
+ </div>
+
+ `;
+}
+
+
+/* ---------- PROFILE ---------- */
+
+function profilePage(){
+
+ const user=getUser();
+
+ return `
+
+ <h1>👤 Profile</h1>
+
+ <div class="panel">
+
+   <div class="form-group">
+     <label>Full Name</label>
+     <input value="${escapeHTML(user.name)}" disabled>
+   </div>
+
+   <div class="form-group">
+     <label>Username</label>
+     <input value="${escapeHTML(user.username)}" disabled>
+   </div>
+
+   <div class="form-group">
+     <label>Class</label>
+     <input value="Class ${user.class}" disabled>
+   </div>
+
+   <div class="form-group">
+     <label>Account Status</label>
+     <input value="Active 🎉" disabled>
+   </div>
+
+ </div>
+
+ `;
+}
+
+
+/* ---------- PAGE ROUTER ---------- */
+
+function renderPage(){
+
+ const main=document.getElementById("mainContent");
+
+ if(state.page==="dashboard")
+   main.innerHTML=dashboard();
+
+ else if(state.page==="chapters"){
+   main.innerHTML=chaptersPage();
+   setTimeout(loadChapters,0);
+ }
+
+ else if(state.page==="quiz")
+   main.innerHTML=quizPage();
+
+ else if(state.page==="progress")
+   main.innerHTML=progressPage();
+
+ else if(state.page==="certificates")
+   main.innerHTML=certificatesPage();
+
+ else if(state.page==="profile")
+   main.innerHTML=profilePage();
+
+}
+
+
+/* ---------- DARK MODE ---------- */
+
+function toggleDarkMode(){
+
+ document.body.classList.toggle("dark");
+
+ if(document.body.classList.contains("dark")){
+
+   document.documentElement.style.setProperty(
+     "--bg","#0f172a"
+   );
+
+   document.documentElement.style.setProperty(
+     "--card","#182235"
+   );
+
+   document.documentElement.style.setProperty(
+     "--text","#f8fafc"
+   );
+
+   document.documentElement.style.setProperty(
+     "--muted","#aab4c5"
+   );
+
+ }else{
+
+   document.documentElement.style.setProperty(
+     "--bg","#f4f7fb"
+   );
+
+   document.documentElement.style.setProperty(
+     "--card","#ffffff"
+   );
+
+   document.documentElement.style.setProperty(
+     "--text","#172033"
+   );
+
+   document.documentElement.style.setProperty(
+     "--muted","#667085"
+   );
+
+ }
+
+}
+
+
+/* ---------- START ---------- */
+
+if(currentUser && users[currentUser]){
+
+ renderApp();
+
+}else{
+
+ showAuth("login");
+
+}
+
+</script>
+
+</body>
+</html>
